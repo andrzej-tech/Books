@@ -1,0 +1,51 @@
+{% block content %}
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+</style>
+
+<a  href="{{ url_for('new_book') }}">Add Book</a>
+
+    <p> My books: </p>
+<table>
+      <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Series</th>
+          <th>Number of book in series</th>
+          <th>All books in series</th>
+          <th>Image</th>
+  </tr>
+    {% for book in add_books %}
+    <tr>
+        <th>  {{ book.id }}   </th>
+        <th> {{ book.title }}  </th>
+        <th> {{ book.author }}  </th>
+        <th>{{ book.series }}   </th>
+        <th>{{ book.book_in_series }}  </th>
+        <th> {{ book.no_of_books_in_series }} </th>
+        <th> <img src="{{url_for('static', filename='/books_images/' + book.book_image)}}" /> </th>
+        <th>           <form action="{{ url_for('delete_book', book_id=book.id) }}" method="POST">
+            <input class="btn btn-danger" type="submit" value="Delete">
+          </form> </th>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

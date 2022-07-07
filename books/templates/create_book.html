@@ -1,0 +1,97 @@
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+            <div class="form-group">
+                {{ form.title.label(class="form-control-label") }}
+                {% if form.title.errors %}
+                    {{ form.title(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.title.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.title(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.author.label(class="form-control-label") }}
+                {% if form.author.errors %}
+                    {{ form.author(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.author.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.author(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+              <div class="form-group">
+                {{ form.series.label(class="form-control-label") }}
+                {% if form.series.errors %}
+                    {{ form.series(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.series.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.series(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+              <div class="form-group">
+                {{ form.no_of_books_in_series.label(class="form-control-label") }}
+                {% if form.no_of_books_in_series.errors %}
+                    {{ form.no_of_books_in_series(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.no_of_books_in_series.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.no_of_books_in_series(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+              <div class="form-group">
+                {{ form.book_in_series.label(class="form-control-label") }}
+                {% if form.book_in_series.errors %}
+                    {{ form.book_in_series(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.book_in_series.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.book_in_series(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+              <div class="form-group">
+                {{ form.book_image.label(class="form-control-label") }}
+                {% if form.book_image.errors %}
+                    {{ form.book_image(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.book_image.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.book_image }}
+                {% endif %}
+            </div>
+
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+{% endblock content %}
